@@ -25,8 +25,6 @@ import android.media.MediaPlayer;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
-import edu.sfsu.cs.orange.ocr.R;
-
 import java.io.IOException;
 
 /**

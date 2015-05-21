@@ -17,9 +17,6 @@
 
 package com.example.magali.ocrapp;
 
-import java.io.File;
-import java.io.IOException;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -60,12 +57,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.magali.ocrapp.camera.CameraManager;
+import com.example.magali.ocrapp.camera.ShutterButton;
 import com.googlecode.tesseract.android.TessBaseAPI;
 
-import edu.sfsu.cs.orange.ocr.camera.CameraManager;
-import edu.sfsu.cs.orange.ocr.camera.ShutterButton;
-import edu.sfsu.cs.orange.ocr.language.LanguageCodeHelper;
-import edu.sfsu.cs.orange.ocr.language.TranslateAsyncTask;
+import java.io.File;
+import java.io.IOException;
 
 /**
  * This activity opens the camera and does the actual scanning on a background thread. It draws a
@@ -581,15 +578,12 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
   /** Sets the necessary language code values for the given OCR language. */
   private boolean setSourceLanguage(String languageCode) {
     sourceLanguageCodeOcr = languageCode;
-    sourceLanguageCodeTranslation = LanguageCodeHelper.mapLanguageCode(languageCode);
-    sourceLanguageReadable = LanguageCodeHelper.getOcrLanguageName(this, languageCode);
     return true;
   }
 
   /** Sets the necessary language code values for the translation target language. */
   private boolean setTargetLanguage(String languageCode) {
     targetLanguageCodeTranslation = languageCode;
-    targetLanguageReadable = LanguageCodeHelper.getTranslationLanguageName(this, languageCode);
     return true;
   }
 
@@ -772,8 +766,9 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
       setProgressBarVisibility(true);
       
       // Get the translation asynchronously
-      new TranslateAsyncTask(this, sourceLanguageCodeTranslation, targetLanguageCodeTranslation, 
-          ocrResult.getText()).execute();
+      //TODO pegarle al servcio de aulas
+//      new TranslateAsyncTask(this, sourceLanguageCodeTranslation, targetLanguageCodeTranslation,
+//          ocrResult.getText()).execute();
     } else {
       translationLanguageLabelTextView.setVisibility(View.GONE);
       translationLanguageTextView.setVisibility(View.GONE);

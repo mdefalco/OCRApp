@@ -24,10 +24,7 @@ import android.graphics.Rect;
 import android.hardware.Camera;
 import android.os.Handler;
 import android.preference.PreferenceManager;
-import android.util.Log;
 import android.view.SurfaceHolder;
-
-import com.example.magali.ocrapp.PlanarYUVLuminanceSource;
 
 import com.example.magali.ocrapp.PlanarYUVLuminanceSource;
 import com.example.magali.ocrapp.PreferencesActivity;

@@ -15,6 +15,16 @@
  */
 package com.example.magali.ocrapp;
 
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.os.AsyncTask;
+import android.util.Log;
+
+import com.googlecode.tesseract.android.TessBaseAPI;
+
+import org.xeustechnologies.jtar.TarEntry;
+import org.xeustechnologies.jtar.TarInputStream;
+
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -31,17 +41,6 @@ import java.net.URL;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
-
-
-import org.xeustechnologies.jtar.TarEntry;
-import org.xeustechnologies.jtar.TarInputStream;
-
-import com.googlecode.tesseract.android.TessBaseAPI;
-
-import android.app.ProgressDialog;
-import android.content.Context;
-import android.os.AsyncTask;
-import android.util.Log;
 
 
 /**

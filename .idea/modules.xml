@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/OCRApp.iml" filepath="$PROJECT_DIR$/OCRApp.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/libraries/libraries.iml" filepath="$PROJECT_DIR$/libraries/libraries.iml" />
-      <module fileurl="file://$PROJECT_DIR$/libraries/tess-two/libraries-tess-two.iml" filepath="$PROJECT_DIR$/libraries/tess-two/libraries-tess-two.iml" />
-      <module fileurl="file://$PROJECT_DIR$/tess-two/tess-two.iml" filepath="$PROJECT_DIR$/tess-two/tess-two.iml" />
+      <module fileurl="file://$USER_HOME$/dev/git/OCRApp/OCRApp.iml" filepath="$USER_HOME$/dev/git/OCRApp/OCRApp.iml" />
+      <module fileurl="file://$USER_HOME$/dev/git/OCRApp/app/app.iml" filepath="$USER_HOME$/dev/git/OCRApp/app/app.iml" />
+      <module fileurl="file://$USER_HOME$/dev/git/OCRApp/libraries/libraries.iml" filepath="$USER_HOME$/dev/git/OCRApp/libraries/libraries.iml" />
+      <module fileurl="file://$USER_HOME$/dev/git/OCRApp/libraries/tess-two/libraries-tess-two.iml" filepath="$USER_HOME$/dev/git/OCRApp/libraries/tess-two/libraries-tess-two.iml" />
+      <module fileurl="file://$USER_HOME$/dev/git/OCRApp/tess-two/tess-two.iml" filepath="$USER_HOME$/dev/git/OCRApp/tess-two/tess-two.iml" />
     </modules>
   </component>
 </project>

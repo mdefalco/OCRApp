@@ -16,22 +16,21 @@
  */
 package com.example.magali.ocrapp;
 
-import java.util.List;
-
-import edu.sfsu.cs.orange.ocr.R;
-import com.example.magali.ocrapp.camera.CameraManager;
-
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Paint.Align;
+import android.graphics.Paint.Style;
 import android.graphics.Point;
 import android.graphics.Rect;
-import android.graphics.Paint.Style;
 import android.util.AttributeSet;
 import android.view.View;
+
+import com.example.magali.ocrapp.camera.CameraManager;
+
+import java.util.List;
 
 /**
  * This view is overlaid on top of the camera preview. It adds the viewfinder rectangle and partial

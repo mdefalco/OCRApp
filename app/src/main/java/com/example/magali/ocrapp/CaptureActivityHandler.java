@@ -16,16 +16,13 @@
  */
 package com.example.magali.ocrapp;
 
-import edu.sfsu.cs.orange.ocr.CaptureActivity;
-import edu.sfsu.cs.orange.ocr.R;
-import edu.sfsu.cs.orange.ocr.camera.CameraManager;
-import edu.sfsu.cs.orange.ocr.OcrResult;
-
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import android.view.Gravity;
 import android.widget.Toast;
+
+import com.example.magali.ocrapp.camera.CameraManager;
 
 /**
  * This class handles all the messaging which comprises the state machine for capture.

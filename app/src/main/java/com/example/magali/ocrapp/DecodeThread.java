@@ -17,9 +17,9 @@
 
 package com.example.magali.ocrapp;
 
-import com.example.magali.ocrapp.CaptureActivity;
 import android.os.Handler;
 import android.os.Looper;
+
 import java.util.concurrent.CountDownLatch;
 
 /**

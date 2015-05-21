@@ -15,10 +15,10 @@
  */
 package com.example.magali.ocrapp;
 
-import java.util.List;
-
 import android.graphics.Point;
 import android.graphics.Rect;
+
+import java.util.List;
 
 /**
  * Encapsulates text and its character/word coordinates resulting from OCR.

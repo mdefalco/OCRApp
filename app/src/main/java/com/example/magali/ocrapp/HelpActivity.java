@@ -30,7 +30,6 @@ import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
-import edu.sfsu.cs.orange.ocr.R;
 /**
  * Activity to display informational pages to the user in a WebView.
  * 

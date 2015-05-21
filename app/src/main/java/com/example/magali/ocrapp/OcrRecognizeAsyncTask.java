@@ -15,15 +15,14 @@
  */
 package com.example.magali.ocrapp;
 
-import com.googlecode.leptonica.android.ReadFile;
-import com.googlecode.tesseract.android.TessBaseAPI;
-
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
-import edu.sfsu.cs.orange.ocr.R;
+
+import com.googlecode.leptonica.android.ReadFile;
+import com.googlecode.tesseract.android.TessBaseAPI;
 
 /**
  * Class to send OCR requests to the OCR engine in a separate thread, send a success/failure message,

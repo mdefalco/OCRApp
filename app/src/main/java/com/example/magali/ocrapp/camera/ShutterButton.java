@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package edu.sfsu.cs.orange.ocr.camera;
+package com.example.magali.ocrapp.camera;
 
 import android.content.Context;
 import android.util.AttributeSet;

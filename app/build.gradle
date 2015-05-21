@@ -4,12 +4,19 @@ android {
     compileSdkVersion 22
     buildToolsVersion "22.0.1"
 
+
+configurations {
+     all*.exclude group: 'org.xeustechnologies'
+}
+
     defaultConfig {
         applicationId "com.example.magali.ocrapp"
         minSdkVersion 14
         targetSdkVersion 22
         versionCode 1
         versionName "1.0"
+// Enabling multidex support.
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -20,8 +27,10 @@ android {
 }
 
 dependencies {
+    compile 'com.android.support:multidex:1.0.1'
+    androidTestCompile 'com.android.support:multidex-instrumentation:1.0.1'
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:appcompat-v7:22.1.1'
     compile project(':libraries:tess-two')
-    compile 'org.xeustechnologies:jtar:1.1'
+//    compile 'org.xeustechnologies:jtar:1.1'
 }

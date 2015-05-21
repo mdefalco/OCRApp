@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package edu.sfsu.cs.orange.ocr.camera;
+package com.example.magali.ocrapp.camera;
 
 
 import android.content.Context;
@@ -27,7 +27,7 @@ import android.util.Log;
 import android.view.Display;
 import android.view.WindowManager;
 
-import edu.sfsu.cs.orange.ocr.PreferencesActivity;
+import com.example.magali.ocrapp.PreferencesActivity;
 
 import java.util.ArrayList;
 import java.util.Collection;
