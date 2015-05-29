@@ -21,6 +21,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
@@ -30,7 +31,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Rect;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
@@ -61,8 +61,18 @@ import com.example.magali.ocrapp.camera.CameraManager;
 import com.example.magali.ocrapp.camera.ShutterButton;
 import com.googlecode.tesseract.android.TessBaseAPI;
 
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.StatusLine;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 
 /**
  * This activity opens the camera and does the actual scanning on a background thread. It draws a
@@ -750,35 +760,60 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
     int scaledSize = Math.max(22, 32 - ocrResult.getText().length() / 4);
     ocrResultTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, scaledSize);
 
-    TextView translationLanguageLabelTextView = (TextView) findViewById(R.id.translation_language_label_text_view);
-    TextView translationLanguageTextView = (TextView) findViewById(R.id.translation_language_text_view);
-    TextView translationTextView = (TextView) findViewById(R.id.translation_text_view);
-    if (isTranslationActive) {
-      // Handle translation text fields
-      translationLanguageLabelTextView.setVisibility(View.VISIBLE);
-      translationLanguageTextView.setText(targetLanguageReadable);
-      translationLanguageTextView.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL), Typeface.NORMAL);
-      translationLanguageTextView.setVisibility(View.VISIBLE);
-
-      // Activate/re-activate the indeterminate progress indicator
-      translationTextView.setVisibility(View.GONE);
-      progressView.setVisibility(View.VISIBLE);
-      setProgressBarVisibility(true);
-      
+    String text = ocrResult.getText();
       // Get the translation asynchronously
-      //TODO pegarle al servcio de aulas
-//      new TranslateAsyncTask(this, sourceLanguageCodeTranslation, targetLanguageCodeTranslation,
-//          ocrResult.getText()).execute();
-    } else {
-      translationLanguageLabelTextView.setVisibility(View.GONE);
-      translationLanguageTextView.setVisibility(View.GONE);
-      translationTextView.setVisibility(View.GONE);
-      progressView.setVisibility(View.GONE);
-      setProgressBarVisibility(false);
-    }
+
+      String url = "http://simorwai.com/health";
+      String jsonResult = this.readJSONFeed(url);
+
+    new AlertDialog.Builder(this)
+            .setTitle("Estado del aula")
+            .setMessage(jsonResult)
+            .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+              public void onClick(DialogInterface dialog, int which) {
+                // continue with delete
+              }
+            })
+            .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+              public void onClick(DialogInterface dialog, int which) {
+                // do nothing
+              }
+            })
+            .setIcon(android.R.drawable.ic_dialog_alert)
+            .show();
+
+      //TODO pegarle al servcio de aulas y mostrar la vista con la materia
+
+
     return true;
   }
-  
+
+  public String readJSONFeed(String URL) {
+    StringBuilder stringBuilder = new StringBuilder();
+    HttpClient httpClient = new DefaultHttpClient();
+    HttpGet httpGet = new HttpGet(URL);
+    try {
+      HttpResponse response = httpClient.execute(httpGet);
+      StatusLine statusLine = response.getStatusLine();
+      int statusCode = statusLine.getStatusCode();
+      if (statusCode == 200) {
+        HttpEntity entity = response.getEntity();
+        InputStream inputStream = entity.getContent();
+        BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+        String line;
+        while ((line = reader.readLine()) != null) {
+          stringBuilder.append(line);
+        }
+        inputStream.close();
+      } else {
+        System.out.println("ERROR EN JSON");
+      }
+    } catch (Exception e) {
+      System.out.println("ERROR EN JSON");
+    }
+    return stringBuilder.toString();
+  }
+
   /**
    * Displays information relating to the results of a successful real-time OCR request.
    * 
